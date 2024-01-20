@@ -1,30 +1,45 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const myApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class myApp extends StatelessWidget {
+  const myApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: HomeActivity(),
-    debugShowCheckedModeBanner: false);
+    return const MaterialApp(
+      home: HomeActivity(),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
 
 class HomeActivity extends StatelessWidget {
   const HomeActivity({super.key});
+  MySnackBar(message, context) {
+    return ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("This a app bar" , 
-        style: TextStyle(color: Colors.white),),
-        backgroundColor: const Color.fromARGB(255, 3, 3, 3),
+        title: const Text("This is app bar"),
+        titleSpacing: 10,
+        backgroundColor: Color.fromARGB(255, 200, 255, 1),
+        elevation: 0,
+        toolbarOpacity: 1,
+        toolbarHeight: 60,
+        actions: [
+          IconButton(onPressed: () {MySnackBar("This is a comment!", context);}, icon: Icon(Icons.comment)),
+          IconButton(onPressed: () {MySnackBar('This is a search', context);}, icon: Icon(Icons.search)),
+          IconButton(onPressed: () {MySnackBar("this is a email", context);}, icon: Icon(Icons.email)),
+          IconButton(onPressed: () {MySnackBar("This a a bike", context);}, icon: Icon(Icons.pedal_bike_outlined)),
+        ],
       ),
+      backgroundColor: Colors.blue,
     );
-      
-  
   }
 }
