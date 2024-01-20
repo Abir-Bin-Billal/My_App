@@ -28,7 +28,7 @@ class HomeActivity extends StatelessWidget {
       appBar: AppBar(
         title: const Text("This is app bar"),
         titleSpacing: 10,
-        backgroundColor: Color.fromARGB(255, 200, 255, 1),
+        backgroundColor: Colors.green,
         elevation: 0,
         toolbarOpacity: 1,
         toolbarHeight: 60,
@@ -39,7 +39,15 @@ class HomeActivity extends StatelessWidget {
           IconButton(onPressed: () {MySnackBar("This a a bike", context);}, icon: Icon(Icons.pedal_bike_outlined)),
         ],
       ),
-      backgroundColor: Colors.blue,
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){MySnackBar('Something added',context);},
+        child: Icon(Icons.add),
+        backgroundColor: Colors.green,
+        elevation: 10,
+        
+        
+        ),
+      backgroundColor: Colors.white,
     );
   }
 }
