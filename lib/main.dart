@@ -33,21 +33,55 @@ class HomeActivity extends StatelessWidget {
         toolbarOpacity: 1,
         toolbarHeight: 60,
         actions: [
-          IconButton(onPressed: () {MySnackBar("This is a comment!", context);}, icon: Icon(Icons.comment)),
-          IconButton(onPressed: () {MySnackBar('This is a search', context);}, icon: Icon(Icons.search)),
-          IconButton(onPressed: () {MySnackBar("this is a email", context);}, icon: Icon(Icons.email)),
-          IconButton(onPressed: () {MySnackBar("This a a bike", context);}, icon: Icon(Icons.pedal_bike_outlined)),
+          IconButton(
+              onPressed: () {
+                MySnackBar("This is a comment!", context);
+              },
+              icon: Icon(Icons.comment)),
+          IconButton(
+              onPressed: () {
+                MySnackBar('This is a search', context);
+              },
+              icon: Icon(Icons.search)),
+          IconButton(
+              onPressed: () {
+                MySnackBar("this is a email", context);
+              },
+              icon: Icon(Icons.email)),
+          IconButton(
+              onPressed: () {
+                MySnackBar("This a a bike", context);
+              },
+              icon: Icon(Icons.pedal_bike_outlined)),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){MySnackBar('Something added',context);},
+        onPressed: () {
+          MySnackBar('Something added', context);
+        },
         child: Icon(Icons.add),
         backgroundColor: Colors.green,
         elevation: 10,
-        
-        
-        ),
-      backgroundColor: Colors.white,
+      ),
+      bottomNavigationBar:  BottomNavigationBar(
+        currentIndex: 0,
+        items: [
+        BottomNavigationBarItem(icon: const Icon(Icons.home) , label: "Home"),
+        BottomNavigationBarItem(icon: const Icon(Icons.camera) , label: "Camera"),
+        BottomNavigationBarItem(icon: const Icon(Icons.person), label: "Profile"),
+      ],
+      onTap: (int index){
+        if (index==0 ) {
+          MySnackBar("This is home button", context);
+        }
+        if(index == 1){
+          MySnackBar("This is camera", context);
+        }
+        if (index == 2) {
+          MySnackBar("This is your profilee", context);
+        }
+      },),
+  
     );
   }
 }
