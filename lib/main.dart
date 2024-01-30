@@ -25,7 +25,7 @@ class HomeActivity extends StatelessWidget {
     return ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text(message)));
   }
-  MyAlerdialouge(context){
+  MyAlertdialouge(context){
     return showDialog(
       context: context, 
       builder: (BuildContext context){
@@ -33,9 +33,9 @@ class HomeActivity extends StatelessWidget {
 return Expanded(
   child: AlertDialog(
     title: Text('Alert!'),
-    content: Text('Do you want to delete?'),
+    content: Text('Are u sure to to submit?'),
     actions: [
-      ElevatedButton(onPressed: (){MySnackBar("Delete Successfully", context);Navigator.of(context).pop();}, child: Text("Yes"),
+      ElevatedButton(onPressed: (){MySnackBar("submitted Successfully", context);Navigator.of(context).pop();}, child: Text("Yes"),
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.blue
       ),),
@@ -178,7 +178,7 @@ return Expanded(
           Padding(padding: EdgeInsets.all(10), child: TextField(decoration: InputDecoration(border: OutlineInputBorder(), labelText: "First Name"),),),
           Padding(padding: EdgeInsets.all(10), child: TextField(decoration: InputDecoration(border: OutlineInputBorder(), labelText: "Phone Number"),),),
           Padding(padding: EdgeInsets.all(10), child: TextField(decoration: InputDecoration(border: OutlineInputBorder(), labelText: "Password"),),),
-          Padding(padding: EdgeInsets.all(10) , child: ElevatedButton(onPressed:(){} , child: Text('Submit',style: TextStyle(color: Colors.white),),style:  ElevatedButton.styleFrom(minimumSize: Size(double.infinity, 60),backgroundColor: Colors.blue,),),)
+          Padding(padding: EdgeInsets.all(10) , child: ElevatedButton(onPressed:(){MyAlertdialouge(context);} , child: Text('Submit',style: TextStyle(color: Colors.white),),style:  ElevatedButton.styleFrom(minimumSize: Size(double.infinity, 60),backgroundColor: Colors.blue,),),)
         ],
       )
      
