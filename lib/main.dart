@@ -20,7 +20,7 @@ class myApp extends StatelessWidget {
 }
 
 class HomeActivity extends StatelessWidget {
-  const HomeActivity({super.key});
+   HomeActivity({super.key});
   MySnackBar(message, context) {
     return ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text(message)));
@@ -46,6 +46,12 @@ return Expanded(
   );
       });
   }
+  ButtonStyle buttonStyle = ElevatedButton.styleFrom(
+    minimumSize: Size(double.infinity, 60),
+    maximumSize: Size(double.infinity, 60)
+  );
+
+  
 
   @override
   
@@ -166,18 +172,18 @@ return Expanded(
           ],
         ),
       ),
-      body: Center(
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.black,
-          shape: StadiumBorder(),
-        ),
-        onPressed:(){MyAlerdialouge(context);}  ,
-       child: Text('Click me',
-       style: TextStyle(color: Colors.white),),
-       
-       ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Padding(padding: EdgeInsets.all(10), child: TextField(decoration: InputDecoration(border: OutlineInputBorder(), labelText: "First Name"),),),
+          Padding(padding: EdgeInsets.all(10), child: TextField(decoration: InputDecoration(border: OutlineInputBorder(), labelText: "Phone Number"),),),
+          Padding(padding: EdgeInsets.all(10), child: TextField(decoration: InputDecoration(border: OutlineInputBorder(), labelText: "Password"),),),
+          Padding(padding: EdgeInsets.all(10) , child: ElevatedButton(onPressed:(){} , child: Text('Submit',style: TextStyle(color: Colors.white),),style:  ElevatedButton.styleFrom(minimumSize: Size(double.infinity, 60),backgroundColor: Colors.blue,),),)
+        ],
       )
+     
+      
+      
     );
   }
 }
