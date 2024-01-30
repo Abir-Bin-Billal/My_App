@@ -25,6 +25,27 @@ class HomeActivity extends StatelessWidget {
     return ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text(message)));
   }
+  MyAlerdialouge(context){
+    return showDialog(
+      context: context, 
+      builder: (BuildContext context){
+
+return Expanded(
+  child: AlertDialog(
+    title: Text('Alert!'),
+    content: Text('Do you want to delete?'),
+    actions: [
+      ElevatedButton(onPressed: (){MySnackBar("Delete Successfully", context);Navigator.of(context).pop();}, child: Text("Yes"),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.blue
+      ),),
+      ElevatedButton(onPressed: (){Navigator.of(context).pop();}, child: Text('No'),
+      style: ElevatedButton.styleFrom(backgroundColor: Colors.blue,))
+    ],
+  ) 
+  );
+      });
+  }
 
   @override
   
@@ -145,63 +166,17 @@ class HomeActivity extends StatelessWidget {
           ],
         ),
       ),
-      endDrawer: Drawer(
-        child: ListView(
-          children: [
-            DrawerHeader(
-                padding: EdgeInsets.all(0),
-                child: UserAccountsDrawerHeader(
-                  decoration:
-                      BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
-                  accountName: Text(
-                    "Abir bin Billal",
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  accountEmail: Text(
-                    "Abir41300@gmial.com",
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  currentAccountPicture: Image.network(
-                      "https://cdn5.vectorstock.com/i/1000x1000/44/89/hacker-logo-template-vector-20504489.jpg"),
-                )),
-            ListTile(
-              title: Text("Home"),
-              leading: Icon(Icons.home),
-              onTap: () {
-                MySnackBar("On the way to Home!", context);
-              },
-            ),
-            ListTile(
-              title: const Text("Contact"),
-              leading: const Icon(Icons.contact_mail),
-              onTap: () {
-                MySnackBar("this is contact", context);
-              },
-            ),
-            ListTile(
-              title: Text("Profile"),
-              leading: Icon(Icons.person),
-              onTap: () {
-                MySnackBar("This is a profilee", context);
-              },
-            ),
-            ListTile(
-              title: Text("Help"),
-              leading: Icon(Icons.help),
-              onTap: () {
-                MySnackBar("I can help you", context);
-              },
-            ),
-          ],
+      body: Center(
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.black,
+          shape: StadiumBorder(),
         ),
-      ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          TextButton(onPressed: (){MySnackBar("This is text button", context);},  child: Text("Text button")),
-          ElevatedButton(onPressed: (){MySnackBar("This a  an elevated button", context);}, child: Text("Elevated Button"),style: buttonStyle,),
-          OutlinedButton(onPressed: (){MySnackBar("This a is an OutlinedButton", context);}, child: Text("Outlined"))
-        ],
+        onPressed:(){MyAlerdialouge(context);}  ,
+       child: Text('Click me',
+       style: TextStyle(color: Colors.white),),
+       
+       ),
       )
     );
   }
