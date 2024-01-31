@@ -50,6 +50,17 @@ return Expanded(
     minimumSize: Size(double.infinity, 60),
     maximumSize: Size(double.infinity, 60)
   );
+  var myItems = [
+    {'img':"https://miro.medium.com/v2/resize:fit:1400/1*_S7scqhMXrU6CsAcafAq8g.jpeg",'title':"rmd1"},
+    {'img':"https://miro.medium.com/v2/resize:fit:1400/1*_S7scqhMXrU6CsAcafAq8g.jpeg",'title':"rmd2"},
+    {'img':"https://miro.medium.com/v2/resize:fit:1400/1*_S7scqhMXrU6CsAcafAq8g.jpeg",'title':"rmd3"},
+    {'img':"https://miro.medium.com/v2/resize:fit:1400/1*_S7scqhMXrU6CsAcafAq8g.jpeg",'title':"rmd4"},
+    {'img':"https://miro.medium.com/v2/resize:fit:1400/1*_S7scqhMXrU6CsAcafAq8g.jpeg",'title':"rmd5"},
+    {'img':"https://miro.medium.com/v2/resize:fit:1400/1*_S7scqhMXrU6CsAcafAq8g.jpeg",'title':"rmd6"},
+    {'img':"https://miro.medium.com/v2/resize:fit:1400/1*_S7scqhMXrU6CsAcafAq8g.jpeg",'title':"rmd7"},
+    {'img':"https://miro.medium.com/v2/resize:fit:1400/1*_S7scqhMXrU6CsAcafAq8g.jpeg",'title':"rmd8"},
+    {'img':"https://miro.medium.com/v2/resize:fit:1400/1*_S7scqhMXrU6CsAcafAq8g.jpeg",'title':"rmd9"},
+  ];
 
   
 
@@ -172,18 +183,20 @@ return Expanded(
           ],
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Padding(padding: EdgeInsets.all(10), child: TextField(decoration: InputDecoration(border: OutlineInputBorder(), labelText: "First Name"),),),
-          Padding(padding: EdgeInsets.all(10), child: TextField(decoration: InputDecoration(border: OutlineInputBorder(), labelText: "Phone Number"),),),
-          Padding(padding: EdgeInsets.all(10), child: TextField(decoration: InputDecoration(border: OutlineInputBorder(), labelText: "Password"),),),
-          Padding(padding: EdgeInsets.all(10) , child: ElevatedButton(onPressed:(){MyAlertdialouge(context);} , child: Text('Submit',style: TextStyle(color: Colors.white),),style:  ElevatedButton.styleFrom(minimumSize: Size(double.infinity, 60),backgroundColor: Colors.blue,),),)
-        ],
+      body: ListView.builder(
+        itemCount: myItems.length,
+        itemBuilder: (context , index){
+          return GestureDetector(
+            onTap: (){MySnackBar(myItems[index]['title'], context);},
+            child: Container(
+              margin: EdgeInsets.all(10),
+              width: double.infinity,
+              height: 200,
+              child: Image.network(myItems[index]['img']! ,fit: BoxFit.fill,),
+            ),
+          );
+        },
       )
-     
-      
-      
     );
   }
 }
