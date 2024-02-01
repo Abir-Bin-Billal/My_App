@@ -60,6 +60,7 @@ return Expanded(
     {'img':"https://miro.medium.com/v2/resize:fit:1400/1*_S7scqhMXrU6CsAcafAq8g.jpeg",'title':"rmd7"},
     {'img':"https://miro.medium.com/v2/resize:fit:1400/1*_S7scqhMXrU6CsAcafAq8g.jpeg",'title':"rmd8"},
     {'img':"https://miro.medium.com/v2/resize:fit:1400/1*_S7scqhMXrU6CsAcafAq8g.jpeg",'title':"rmd9"},
+    {'img':"https://miro.medium.com/v2/resize:fit:1400/1*_S7scqhMXrU6CsAcafAq8g.jpeg",'title':"rmd9"}
   ];
 
   
@@ -183,13 +184,17 @@ return Expanded(
           ],
         ),
       ),
-      body: ListView.builder(
+      body: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount:2,
+          childAspectRatio:1.5
+          ),
         itemCount: myItems.length,
         itemBuilder: (context , index){
           return GestureDetector(
             onTap: (){MySnackBar(myItems[index]['title'], context);},
             child: Container(
-              margin: EdgeInsets.all(10),
+              margin: EdgeInsets.all(7),
               width: double.infinity,
               height: 200,
               child: Image.network(myItems[index]['img']! ,fit: BoxFit.fill,),
