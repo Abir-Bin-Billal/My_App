@@ -3,12 +3,15 @@ import 'package:my_app/home.dart';
 import 'package:my_app/main.dart';
 
 class activity_two extends StatelessWidget{
-  @override
+  String msg;
+ activity_two(this.msg , {super.key});
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Activity two"),
+        title: Text(msg),
       ),
       body: Center(
         child: Text("Welcome to  Activity two"),

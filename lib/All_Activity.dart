@@ -18,8 +18,11 @@ class all_activity extends StatelessWidget {
         
 
         children: [
-        ElevatedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> activity_one()));}, child: Text("Activity one")),
-        ElevatedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> activity_two()));}, child: Text("Activity Two"))
+        ElevatedButton(
+          onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> activity_one("from home to activity one")));}, 
+          child: Text("Activity one")),
+        ElevatedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> activity_two("From home to activity two")));}, 
+        child: Text("Activity Two"))
         ],
       )
     )

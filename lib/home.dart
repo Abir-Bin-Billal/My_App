@@ -2,6 +2,8 @@
 import 'package:my_app/All_Activity.dart';
 
 class Home extends StatelessWidget {
+
+  
    Home({super.key});
   
      MySnackBar(message, context) {
