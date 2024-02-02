@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/All_Activity.dart';
 import 'package:my_app/bike.dart';
 import 'package:my_app/call.dart';
 import 'package:my_app/car.dart';
@@ -53,8 +54,7 @@ class HomeActivity extends StatelessWidget {
               search_fragment(),
               contact(),
               call(),
-              car(),
-              bike()
+              car(), 
           ]
           ),
       )

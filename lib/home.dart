@@ -1,4 +1,5 @@
  import 'package:flutter/material.dart';
+import 'package:my_app/All_Activity.dart';
 
 class Home extends StatelessWidget {
    Home({super.key});
@@ -26,7 +27,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          MySnackBar('Something added', context);
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> all_activity()));
         },
         child: Icon(Icons.add),
         backgroundColor: Colors.green,
